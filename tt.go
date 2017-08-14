@@ -55,7 +55,7 @@ func showTasks(tasks []task) {
 		return
 	}
 
-	fmt.Printf("%-40s %-16s %-16s %-8s\n", "Name", "Started", "Ended", "Time")
+	fmt.Printf("%-40s %-16s %-16s %-8s\n", "Task", "Started", "Ended", "Time")
 
 	for _, task := range tasks {
 		started := time.Unix(task.Started, 0)

@@ -19,10 +19,6 @@ type task struct {
 	Ended   int64  `json:"ended"`
 }
 
-type taskCollection struct {
-	Collection []task
-}
-
 func getTTFileName() string {
 	usr, err := user.Current()
 	if err != nil {

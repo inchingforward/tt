@@ -64,6 +64,8 @@ func showTasks(tasks []task) {
 		if task.Ended != -1 {
 			endedDisplay = ended.Format(dateFormat)
 			totalDisplay = ended.Sub(started).String()
+		} else {
+			totalDisplay = time.Now().Sub(started).String()
 		}
 
 		fmt.Printf("%-40s %-16s %-16s %-8s\n", task.Name, startedDisplay, endedDisplay, totalDisplay)

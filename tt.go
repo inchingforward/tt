@@ -9,6 +9,10 @@ import (
 	"time"
 )
 
+const (
+	dateFormat = "01/02/2006 15:04"
+)
+
 type task struct {
 	Name    string `json:"name"`
 	Started int64  `json:"started"`
@@ -51,13 +55,22 @@ func showTasks(tasks []task) {
 		return
 	}
 
-	format := "%-40s %-16s %-16s %-8s\n"
-	fmt.Printf(format, "Name", "Started", "Ended", "Time")
+	fmt.Printf("%-40s %-16s %-16s %-8s\n", "Name", "Started", "Ended", "Time")
 
-	count := 1
 	for _, task := range tasks {
-		fmt.Printf(format, task.Name, "", "", "")
-		count++
+		started := time.Unix(task.Started, 0)
+		ended := time.Unix(task.Ended, 0)
+
+		startedDisplay := started.Format(dateFormat)
+		endedDisplay := ""
+		totalDisplay := ""
+
+		if task.Ended != -1 {
+			endedDisplay = ended.Format(dateFormat)
+			totalDisplay = ended.Sub(started).String()
+		}
+
+		fmt.Printf("%-40s %-16s %-16s %-8s\n", task.Name, startedDisplay, endedDisplay, totalDisplay)
 	}
 }
 

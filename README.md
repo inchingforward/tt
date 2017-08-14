@@ -17,9 +17,9 @@
 
 ### Listing tasks 
     $ tt
-    #  Name                            Started          Ended            Time     
-    1  Doing something else            08/13/2017 14:00                  05:00:23 
-    2  Adding Something                08/13/2017 13:22 08/13/2017 14:22 04:20:22     
+    Task                                     Started          Ended            Time    
+    Stub project functions                   08/13/2017 22:38 08/13/2017 22:48 10m29s  
+    Add display values                       08/13/2017 22:55                        
     ...
 
 ## Storage/Data Model
